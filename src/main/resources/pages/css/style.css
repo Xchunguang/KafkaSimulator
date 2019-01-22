@@ -1,0 +1,62 @@
+body{
+    margin:0;
+    padding:0;
+    border-top: 1px solid #ccc;
+}
+a{
+    cursor: pointer;
+}
+
+.createConnectDiv {
+    min-width:300px;
+    min-height:300px;
+    margin:50px;
+}
+.createConnectDiv .form-horizontal .form-group > label{
+    font-weight: 500;
+}
+.createConnectDiv .form-horizontal .form-group > div{
+    border-radius: 0;
+}
+.createConnectDiv .form-horizontal .form-group > div > input{
+    border-radius: 0;
+    height: 30px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    background: #efefef;
+    width: 100%;
+}
+.footer .footer-left{
+    display: inline-block;
+    float: left;
+}
+.footer .footer-right{
+    display: inline-block;
+    float: right;
+}
+.footer .btn-default{
+    border-radius: 0;
+    font-size: 12px;
+    padding: 2px 10px 2px 10px;
+    margin: 5px;
+}
+.outconsole{
+    height: 100px;
+    overflow:auto;
+    border: 1px solid #ccc;
+}
+.outconsole p{
+    margin:0;
+}
+.cutomerDiv{
+    width:100%;
+    height: calc(100% - 33px);
+    background: black;
+    color:white;
+    overflow: auto;
+}
+.cutomerDiv p{
+    margin:0px;
+}

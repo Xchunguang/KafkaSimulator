@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%;overflow: hidden">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kafka</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body style="height:100%;">
+    
+    <div class="createConnectDiv">
+      <form class="form-horizontal">
+
+          <div class="form-group">
+              <label for="inputIp" class="col-sm-2 control-label">连接ip</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="kafkaAddress" placeholder="连接ip">
+              </div>
+          </div>
+          
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">连接端口</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" id="port" value="9092" placeholder="9092">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">topic</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="topic" placeholder="topic">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">分区数</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" id="partNum" value="1" placeholder="1">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">传输内容</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="sendInfo" value="{'name':'%s','value':%d}" placeholder="{'name':'%s','value':%d}">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">发送数量</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" id="sendNum" value="-1" placeholder="-1">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">间隔ms</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" id="sendTime" value="1000" placeholder="1000">
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inputPort" class="col-sm-2 control-label">结果</label>
+            
+              <div class="col-sm-10">
+                <div class="outconsole" id="resultPane">
+                    
+                </div>
+              </div>
+          </div>
+
+          
+      </form>
+  </div>
+
+  <div class="footer">
+      <div class="footer-left">
+          <button onclick="openCutomer()" class="btn btn-default">消费数据</button>
+          <button onclick="targetScroll()" class="btn btn-default">滚动切换</button>
+          <button onclick="clearResult()" class="btn btn-default">清空</button>
+      </div>
+      <div class="footer-right">
+          <button  onclick="send()" class="btn btn-default">发送</button>
+          <button  onclick="stop()" class="btn btn-default">停止</button>
+      </div>
+  </div>
+    <script src="js/index.js"></script>
+
+  </body>
+</html>
