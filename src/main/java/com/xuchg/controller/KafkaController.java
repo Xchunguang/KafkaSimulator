@@ -69,7 +69,7 @@ public class KafkaController {
 	 * 提示窗口
 	 * @param title
 	 */
-	private Alert showInfoAlert(AlertType alertType,String title,boolean wait){
+	public static Alert showInfoAlert(AlertType alertType,String title,boolean wait){
 		Alert alert = null;
 		if(StringUtils.isNotBlank(title)){
 			alert = new Alert(alertType,title);

@@ -1,5 +1,6 @@
 package com.xuchg.common;
 
+import java.sql.Timestamp;
 import java.util.Random;
 
 /**
@@ -27,5 +28,22 @@ public class RandomUtil {
         }
         return new String(text);
     }
+	
+	public static String getDoubleStr(){
+		double i = Math.round(Math.random()*10) + Math.random();
+		return String.valueOf(i);
+	}
+	
+	public static String getTimeStr(){
+		Long time = System.currentTimeMillis();
+		Timestamp timestamp = new Timestamp(time + Math.round(Math.random()*10000000));
+		return timestamp.toString();
+	}
+	
+	public static String getTimeLongStr(){
+		Long time = System.currentTimeMillis();
+		time = time + Math.round(Math.random()*10000000);
+		return time.toString();
+	}
 	
 }

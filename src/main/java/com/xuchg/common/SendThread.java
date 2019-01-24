@@ -13,6 +13,7 @@ import com.xuchg.vo.KafkaConnectVO;
 import com.xuchg.window.MainWindow;
 
 import javafx.application.Platform;
+import javafx.scene.control.Alert.AlertType;
 
 public class SendThread extends Thread{
 
@@ -48,6 +49,16 @@ public class SendThread extends Thread{
         		if(value.indexOf("%s") >= 0){
         			value = value.replaceAll("%s", RandomUtil.getStr());
         		}
+        		if(value.indexOf("%f") >= 0){
+        			value = value.replaceAll("%f",RandomUtil.getDoubleStr());
+        		}
+        		if(value.indexOf("%ts") >= 0){
+        			value = value.replaceAll("%ts",RandomUtil.getTimeStr());
+        		}
+        		if(value.indexOf("%tl") >= 0){
+        			value = value.replaceAll("%tl",RandomUtil.getTimeLongStr());
+        		}
+        		
         		
         		//设定分区规则
         		int partation = count.get() % vo.getPartNum();
@@ -65,7 +76,11 @@ public class SendThread extends Thread{
     				Platform.runLater(new Runnable(){
 						@Override
 						public void run() {
-							FileOper.getValue(curValue);
+							try{
+								FileOper.getValue(curValue);
+							}catch(Exception e){
+								KafkaController.showInfoAlert(AlertType.WARNING,"传输内容有格式错误!",true);
+							}
 						}
     				});
     			} catch (InterruptedException e) {
